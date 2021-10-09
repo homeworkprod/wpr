@@ -1,7 +1,7 @@
 # Changelog
 
 
-## Version 0.1.2 (unreleased)
+## Version 0.1.2 (2021-10-09)
 
 - Update dependency `rand` to v0.8.x.
 
