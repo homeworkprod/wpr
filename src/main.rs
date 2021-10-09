@@ -39,7 +39,9 @@ fn parse_args() -> String {
     let args: Vec<String> = env::args().collect();
 
     if args.len() != 2 {
-        eprintln!("Wallpaper Randomizer. Sets a wallpaper (using feh) randomly chosen from a directory.");
+        eprintln!(
+            "Wallpaper Randomizer. Sets a wallpaper (using feh) randomly chosen from a directory."
+        );
         eprintln!("Usage: wpr <path>");
         std::process::exit(64); // EX_USAGE
     }
