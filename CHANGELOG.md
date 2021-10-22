@@ -1,6 +1,11 @@
 # Changelog
 
 
+## Version 0.2.0 (unreleased)
+
+- Change Rust edition to 2021.
+
+
 ## Version 0.1.2 (2021-10-09)
 
 - Update dependency `rand` to v0.8.x.

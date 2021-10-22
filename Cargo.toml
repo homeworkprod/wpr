@@ -1,8 +1,8 @@
 [package]
 name = "wpr"
-version = "0.1.2"
+version = "0.2.0-dev"
 authors = ["Jochen Kupperschmidt <homework@nwsnet.de>"]
-edition = "2018"
+edition = "2021"
 description = "Wallpaper Randomizer. Sets a wallpaper (using feh) randomly chosen from a directory."
 readme = "README.md"
 repository = "https://github.com/homeworkprod/wpr"
