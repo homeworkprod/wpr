@@ -1,6 +1,4 @@
-#[macro_use]
-extern crate lazy_static;
-
+use lazy_static::lazy_static;
 use rand::seq::SliceRandom;
 use std::collections::HashSet;
 use std::env;
