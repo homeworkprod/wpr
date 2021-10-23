@@ -1,7 +1,7 @@
 [package]
 name = "wpr"
 version = "0.2.0-dev"
-authors = ["Jochen Kupperschmidt <homework@nwsnet.de>"]
+authors = ["Jochen Kupperschmidt"]
 edition = "2021"
 description = "Wallpaper Randomizer. Sets a wallpaper (using feh) randomly chosen from a directory."
 readme = "README.md"
@@ -11,5 +11,6 @@ keywords = ["background", "desktop", "wallpaper"]
 categories = ["command-line-utilities"]
 
 [dependencies]
+clap = { version = "2.33.3", default-features = false }
 lazy_static = "1.4.0"
 rand = "0.8"

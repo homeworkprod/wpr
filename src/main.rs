@@ -1,3 +1,9 @@
+/*
+ * Copyright 2020-2021 Jochen Kupperschmidt
+ * License: MIT (see file `LICENSE` for details)
+ */
+
+use clap::{crate_authors, crate_description, crate_name, crate_version, App, Arg, ArgMatches};
 use lazy_static::lazy_static;
 use rand::seq::SliceRandom;
 use std::collections::HashSet;
@@ -11,10 +17,12 @@ lazy_static! {
 }
 
 fn main() {
-    let path_str = parse_args();
-    let path = ensure_directory(&path_str);
+    let args = parse_args();
 
-    let files = path
+    let images_path = args.value_of("images_path").map(Path::new).unwrap();
+    ensure_directory(&images_path);
+
+    let files = images_path
         .read_dir()
         .expect("Failed to read path.")
         .filter_map(|entry| entry.ok())
@@ -24,7 +32,10 @@ fn main() {
     let images: Vec<PathBuf> = files.filter(|path| is_extension_relevant(path)).collect();
 
     if images.is_empty() {
-        eprintln!("No supported images found in directory: {}", path_str);
+        eprintln!(
+            "No supported images found in directory: {}",
+            images_path.display()
+        );
         std::process::exit(66); // EX_NOINPUT
     }
 
@@ -33,34 +44,29 @@ fn main() {
     set_wallpaper(random_image);
 }
 
-fn parse_args() -> String {
-    let args: Vec<String> = env::args().collect();
-
-    if args.len() != 2 {
-        eprintln!(
-            "Wallpaper Randomizer. Sets a wallpaper (using feh) randomly chosen from a directory."
-        );
-        eprintln!("Usage: wpr <path>");
-        std::process::exit(64); // EX_USAGE
-    }
-
-    args[1].to_string()
+fn parse_args() -> ArgMatches<'static> {
+    App::new(crate_name!())
+        .author(crate_authors!())
+        .version(crate_version!())
+        .about(crate_description!())
+        .arg(
+            Arg::with_name("images_path")
+                .help("Specify directory with images")
+                .required(true),
+        )
+        .get_matches()
 }
 
-fn ensure_directory(path_str: &String) -> &Path {
-    let path = Path::new(path_str);
-
+fn ensure_directory(path: &Path) -> () {
     if !path.exists() {
-        eprintln!("Path does not exist: {}", path_str);
+        eprintln!("Path does not exist: {}", path.display());
         std::process::exit(66); // EX_NOINPUT
     }
 
     if !path.is_dir() {
-        eprintln!("Path is not a directory: {}", path_str);
+        eprintln!("Path is not a directory: {}", path.display());
         std::process::exit(66); // EX_NOINPUT
     }
-
-    path
 }
 
 fn is_extension_relevant(path: &Path) -> bool {

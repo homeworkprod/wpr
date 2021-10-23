@@ -3,6 +3,9 @@
 
 ## Version 0.2.0 (unreleased)
 
+- Add `--help` and `--version` command line options. Adds dependency on
+  `clap`.
+
 - Change Rust edition to 2021.
 
 
