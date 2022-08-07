@@ -1,7 +1,7 @@
 # Changelog
 
 
-## Version 0.3.0 (unreleased)
+## Version 0.3.0 (2022-08-07)
 
 - Update dependency `clap` to v3.2.16.
 
