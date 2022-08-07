@@ -3,6 +3,8 @@
 
 ## Version 0.3.0 (unreleased)
 
+- Update dependency `clap` to v3.2.16.
+
 - Update dependency `rand` to v0.8.5.
 
 - Remove dependency `lazy_static`.

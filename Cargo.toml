@@ -11,5 +11,5 @@ keywords = ["background", "desktop", "wallpaper"]
 categories = ["command-line-utilities"]
 
 [dependencies]
-clap = { version = "2.33.3", default-features = false }
+clap = { version = "3.2.16", default-features = false, features = ["cargo", "std"] }
 rand = "0.8.5"

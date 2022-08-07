@@ -38,7 +38,7 @@ fn main() {
     set_wallpaper(random_image);
 }
 
-fn parse_args() -> ArgMatches<'static> {
+fn parse_args() -> ArgMatches {
     App::new(crate_name!())
         .author(crate_authors!())
         .version(crate_version!())
