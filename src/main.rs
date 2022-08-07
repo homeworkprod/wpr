@@ -14,7 +14,7 @@ fn main() {
     let args = parse_args();
 
     let images_path = args.value_of("images_path").map(Path::new).unwrap();
-    ensure_directory(&images_path);
+    ensure_directory(images_path);
 
     let files = images_path
         .read_dir()
@@ -51,7 +51,7 @@ fn parse_args() -> ArgMatches {
         .get_matches()
 }
 
-fn ensure_directory(path: &Path) -> () {
+fn ensure_directory(path: &Path) {
     if !path.exists() {
         eprintln!("Path does not exist: {}", path.display());
         std::process::exit(66); // EX_NOINPUT
