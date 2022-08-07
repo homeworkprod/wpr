@@ -1,6 +1,6 @@
 [package]
 name = "wpr"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Jochen Kupperschmidt"]
 edition = "2021"
 description = "Wallpaper Randomizer. Sets a wallpaper (using feh) randomly chosen from a directory."
