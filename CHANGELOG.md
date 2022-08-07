@@ -5,6 +5,8 @@
 
 - Update dependency `rand` to v0.8.5.
 
+- Remove dependency `lazy_static`.
+
 
 ## Version 0.2.0 (2021-10-23)
 

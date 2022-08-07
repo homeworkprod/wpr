@@ -4,17 +4,11 @@
  */
 
 use clap::{crate_authors, crate_description, crate_name, crate_version, App, Arg, ArgMatches};
-use lazy_static::lazy_static;
 use rand::seq::SliceRandom;
 use std::collections::HashSet;
 use std::env;
 use std::path::{Path, PathBuf};
 use std::process::Command;
-
-lazy_static! {
-    static ref FILE_EXTENSIONS: HashSet<&'static str> =
-        ["gif", "jpeg", "jpg", "png"].iter().cloned().collect();
-}
 
 fn main() {
     let args = parse_args();
@@ -70,9 +64,11 @@ fn ensure_directory(path: &Path) -> () {
 }
 
 fn is_extension_relevant(path: &Path) -> bool {
+    let relevant_extensions = HashSet::from(["gif", "jpeg", "jpg", "png"]);
+
     path.extension()
         .and_then(|ext| ext.to_str())
-        .map(|ext| FILE_EXTENSIONS.contains(ext))
+        .map(|ext| relevant_extensions.contains(ext))
         .unwrap_or(false)
 }
 
