@@ -3,6 +3,8 @@
 
 ## Version 0.3.0 (unreleased)
 
+- Update dependency `rand` to v0.8.5.
+
 
 ## Version 0.2.0 (2021-10-23)
 
